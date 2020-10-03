@@ -1,6 +1,6 @@
 {
     "name": "t-vue-switch",
-    "version": "1.00.01",
+    "version": "1.01.00",
     "author": "Tina.Liang",
     "private": false,
     "main": "dist/t-vue-switch.common.js",
