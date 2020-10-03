@@ -1,13 +1,23 @@
 <template>
     <div id="app">
         <img alt="Vue logo" src="./assets/logo.png" />
+        <app-switch v-model="isOn"></app-switch>
     </div>
 </template>
 
 <script>
+import Switch from './components';
+
 export default {
     name: 'App',
-    components: {},
+    data: function() {
+        return {
+            isOn: false,
+        };
+    },
+    components: {
+        appSwitch: Switch,
+    },
 };
 </script>
 

@@ -1,11 +1,27 @@
 {
     "name": "t-vue-switch",
-    "version": "1.00.00",
+    "version": "1.00.01",
+    "author": "Tina.Liang",
     "private": false,
+    "main": "dist/t-vue-switch.common.js",
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build"
+        "build": "vue-cli-service build --target lib --name t-vue-switch ./src/components/index.js",
+        "build:doc": "vue-cli-service build ./src/main.js --dest docs --mode development"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/teana0953/t-vue-switch.git"
+    },
+    "files": [
+        "dist/*",
+        "src/*",
+        "public/*"
+    ],
+    "keywords": [
+        "vue",
+        "switch"
+    ],
     "dependencies": {
         "core-js": "^3.6.5",
         "vue": "^2.6.11"
