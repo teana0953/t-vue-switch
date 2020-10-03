@@ -1,12 +1,12 @@
 <template>
     <div class="switch">
-        <span class="switch__slider" :class="{ 'switch__slider--active': value }" @click="toggle(!value)"></span>
+        <span class="switch__slider" :class="{ 'switch__slider--active': value, 'switch__slider--round': isRound }" @click="toggle(!value)"></span>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['value', 'type'],
+    props: ['value', 'isRound'],
     methods: {
         toggle(value) {
             this.$emit('input', value);
@@ -42,6 +42,14 @@ export default {
     bottom: 4px;
     background-color: #fff;
     transition: 0.4s;
+}
+
+.switch__slider--round {
+    border-radius: 34px;
+}
+
+.switch__slider--round::before {
+    border-radius: 50%;
 }
 
 .switch__slider--active {
