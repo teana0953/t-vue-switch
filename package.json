@@ -6,8 +6,10 @@
     "main": "dist/t-vue-switch.common.js",
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build --target lib --name t-vue-switch ./src/components/index.js",
-        "build:doc": "vue-cli-service build ./src/main.js --dest docs --mode development"
+        "prebuild": "node prebuild.js",
+        "build": "vue-cli-service build --target lib --name t-vue-switch ./src/components/index.js & npm run build:doc",
+        "build:doc": "vue-cli-service build ./src/main.js --dest docs --mode development",
+        "prepublish": "npm run build & npm run build:doc"
     },
     "repository": {
         "type": "git",
