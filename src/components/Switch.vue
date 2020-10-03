@@ -1,42 +1,54 @@
 <template>
-    <div>
-        <div id="on" @click="switched(true)" :class="{ active: value }">On</div>
-        <div id="off" @click="switched(false)" :class="{ active: !value }">Off</div>
+    <div class="switch">
+        <span class="switch__slider" :class="{ 'switch__slider--active': value }" @click="toggle(!value)"></span>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['value'],
+    props: ['value', 'type'],
     methods: {
-        switched(isOn) {
-            this.$emit('input', isOn);
+        toggle(value) {
+            this.$emit('input', value);
         },
     },
 };
 </script>
 
 <style scoped>
-#on,
-#off {
-    width: 40px;
-    height: 20px;
-    background-color: lightgray;
-    padding: 2px;
-    display: inline-block;
-    margin: 10px -2px;
-    box-sizing: content-box;
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.switch__slider {
+    position: absolute;
     cursor: pointer;
-    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
 }
 
-#on:hover,
-#on.active {
-    background-color: lightgreen;
+.switch__slider::before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: 0.4s;
 }
 
-#off:hover,
-#off.active {
-    background-color: lightcoral;
+.switch__slider--active {
+    background-color: #2196f3;
+}
+
+.switch__slider--active::before {
+    transform: translateX(26px);
 }
 </style>
